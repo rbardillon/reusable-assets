@@ -34,7 +34,7 @@ aux_links:
     - "//github.com/rbardillon/reusable-assets"
 
 # Footer
-footer_content: "Copyright &copy; 2025 Infor. Distributed by an <a href=\"https://www.infor.com\">Infor</a> license."
+footer_content: "Copyright &copy; 2025 Infor. Maintained by Romeo Bardillon. Distributed by an <a href=\"https://www.infor.com\">Infor</a> license."
 
 # Theme
 color_scheme: nil

@@ -37,6 +37,12 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 
 ---
 
+## Author
+
+Maintained by **Romeo Bardillon**
+
+---
+
 ## Tech Stack
 
 - **Framework:** Angular 18.2 with TypeScript
