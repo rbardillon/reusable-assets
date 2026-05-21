@@ -19,7 +19,7 @@ exclude:
   - Rakefile
 
 # Logo
-logo: "/assets/images/logo.png"
+logo: "/assets/images/logo.svg"
 
 # Search
 search_enabled: true
