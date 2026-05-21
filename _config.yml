@@ -1,7 +1,7 @@
 # Site settings
 title: Reusable Assets
 description: "H5 SDK Reusable Assets — developer tools for M3 Cloud"
-baseurl: "/reusable-assets"
+baseurl: ""
 url: "https://rbardillon.github.io"
 
 permalink: pretty
