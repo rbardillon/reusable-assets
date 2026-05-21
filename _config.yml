@@ -1,0 +1,53 @@
+# Site settings
+title: Reusable Assets
+description: "H5 SDK Reusable Assets — developer tools for M3 Cloud"
+baseurl: "/reusable-assets"
+url: "https://rbardillon.github.io"
+
+permalink: pretty
+exclude:
+  - node_modules/
+  - "*.gemspec"
+  - "*.gem"
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - script/
+  - LICENSE
+  - README.md
+  - Rakefile
+
+# Logo
+logo: "/assets/images/logo.png"
+
+# Search
+search_enabled: true
+search_tokenizer_separator: /[\s/]+/
+
+# Heading anchors
+heading_anchors: true
+
+# Aux links
+aux_links:
+  "View on GitHub":
+    - "//github.com/rbardillon/reusable-assets"
+
+# Footer
+footer_content: "Copyright &copy; 2025 Infor. Distributed by an <a href=\"https://www.infor.com\">Infor</a> license."
+
+# Theme
+color_scheme: nil
+remote_theme: just-the-docs/just-the-docs
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
