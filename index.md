@@ -12,7 +12,7 @@ permalink: /
 A collection of developer tools built with Angular and the H5 SDK for Infor M3 Cloud.
 {: .fs-6 .fw-300 }
 
-[Get Started]({{ site.baseurl }}{% link docs/getting-started/getting-started.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/infor-cloud/reusable-assets){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get Started]({{ site.baseurl }}{% link docs/getting-started/getting-started.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/rbardillon/reusable-assets){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
@@ -28,9 +28,12 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | **Event Hub Formatter** | Browse, filter, and export Event Hub subscriptions |
 | **Custom List Checker** | Validate custom list configurations from ZAP files or MEC mappings |
 | **MEC Mapping Viewer** | Browse MEC mappings with Java source code viewer |
+| **Dataflow List** | Extract ION dataflow dependencies and generate DES-030 documents |
+| **Object Schema Editor** | Browse and edit ION noun XSD definitions |
+| **MEC Variable Validations** | Generate null-safe trim statements from MEC Java classes |
+| **GenAI Chat** | AI chat interface powered by Infor's GenAI service |
 | **Kiro AI Chat** | AI-powered chat assistant with WSL backend |
-| **DES030 Generators** | Generate Experience Designer configurations |
-| **Custom BOD Generator** | Create custom BOD definitions |
+| **Generators** | Quick timestamp and UUID generators |
 
 ---
 
