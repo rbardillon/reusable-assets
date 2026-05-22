@@ -35,7 +35,12 @@ function stripFrontMatter(content) {
 
 function stripJekyllMarkup(content) {
   // Remove Jekyll/Kramdown classes like {: .fs-9 } {: .no_toc }
-  return content.replace(/\{:.*?\}/g, '').replace(/\n1\. TOC\n/g, '');
+  content = content.replace(/\{:.*?\}/g, '');
+  content = content.replace(/\n1\. TOC\n/g, '');
+  // Remove Liquid tags like {% link ... %} and {{ site.baseurl }}
+  content = content.replace(/\{%.*?%\}/g, '');
+  content = content.replace(/\{\{.*?\}\}/g, '');
+  return content;
 }
 
 async function generate() {

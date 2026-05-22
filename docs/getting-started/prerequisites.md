@@ -95,3 +95,23 @@ odin build
 ```
 
 The build artifacts will be in the `dist/` directory, ready to upload as an H5 SDK widget.
+
+## Running Documentation Locally
+
+Requires [Ruby](https://rubyinstaller.org/downloads/) (3.2+) installed and on your PATH.
+
+```bash
+cd docs-site
+gem install bundler
+bundle install
+bundle exec jekyll serve
+```
+
+Open [http://localhost:4000](http://localhost:4000).
+
+To generate a PDF of the documentation:
+
+```bash
+cd docs-site
+npm run pdf
+```
