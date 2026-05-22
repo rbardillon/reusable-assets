@@ -71,4 +71,4 @@ Service layer for the GenAI chat integration.
 
 `des030-generator.service.ts`
 
-Business logic for generating DES030 (Experience Designer) configurations.
+Business logic for generating DES-030 design documents.
