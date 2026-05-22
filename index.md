@@ -12,7 +12,7 @@ permalink: /
 A collection of developer tools built with Angular and the H5 SDK for Infor M3 Cloud.
 {: .fs-6 .fw-300 }
 
-[Get Started]({{ site.baseurl }}{% link docs/getting-started/getting-started.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/rbardillon/reusable-assets){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get Started]({% link docs/getting-started/getting-started.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/rbardillon/reusable-assets){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
