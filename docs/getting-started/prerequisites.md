@@ -35,23 +35,63 @@ The application requires access to an Infor M3 Cloud Edition environment with:
 
 ## Optional: Kiro Chat Backend
 
-The Kiro Chat tab requires a local backend running in WSL. See [Kiro Chat Setup](../configuration/kiro-chat-setup) for details.
+The Kiro Chat tab requires a local backend running in WSL. See [Kiro Chat Setup](../../configuration/kiro-chat-setup) for details.
 
 ## Installation
 
+### 1. Install ODIN CLI
+
 ```bash
-cd "reusable-assets"
+npm install -g @infor-up/m3-odin-cli
+```
+
+### 2. Verify Installation
+
+```bash
+odin -h
+```
+
+### 3. Install Angular CLI
+
+```bash
+npm install -g @angular/cli
+```
+
+### 4. Install project dependencies
+
+```bash
+cd reusable-assets
 npm install
+```
+
+### 5. Download H5 SDK ION API file
+
+Download the `.ionapi` file from your M3 tenant (ION API → Authorized Apps → Download Credentials).
+
+### 6. Connect to M3
+
+```bash
+odin login -c <ion-api-file>
 ```
 
 ## Running the Application
 
 ```bash
-ng serve
+odin serve --multi-tenant --ion-api
+```
+
+Or the shorthand:
+
+```bash
+odin serve -mi
 ```
 
 Navigate to [http://localhost:4200](http://localhost:4200).
 
-### Running inside H5 SDK
+## Building for Deployment
 
-When deployed as an H5 SDK widget, the application runs within the M3 context and automatically inherits authentication from the user session.
+```bash
+odin build
+```
+
+The build artifacts will be in the `dist/` directory, ready to upload as an H5 SDK widget.
