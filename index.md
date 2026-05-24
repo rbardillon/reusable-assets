@@ -34,7 +34,7 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | **GenAI Chat** | AI chat interface powered by Infor's GenAI service |
 | **Kiro AI Chat** | AI-powered chat assistant with WSL backend |
 | **Custom BOD Generator** | Generate CUSBOD mapping templates (.zap) for MEC import |
-| **Generators** | Quick timestamp and UUID generators |
+| **Generators** | Quick timestamp, UUID, and H5 Script Link generators |
 
 ---
 

@@ -23,7 +23,7 @@ The Generators tab provides simple value generators that are frequently needed d
 |:----------|:-------|:-------|
 | **Timestamp** | Current date/time | `YYYYMMDDHHmmssCC` (centiseconds) |
 | **UUID** | Random UUID v4 | `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx` |
-| **H5 Script Link** | Debug URL for local H5 scripts | `{M3 Base URL}scriptCache=false&localScript={url}` |
+| **H5 Script Link** | Debug URL for local H5 scripts | `{M3 Base URL}/?scriptCache=false&localScript={url}` |
 
 ## Usage
 
