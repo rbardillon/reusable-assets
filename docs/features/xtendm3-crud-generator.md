@@ -50,3 +50,7 @@ The XtendM3 CRUD Generator creates complete Add, Delete, Get, List, and Update t
 2. Click **Generate** to preview the CRUD transactions
 3. Use **Upload** to push directly to M3, or **Download ZIP** for offline use
 4. Optionally save your configuration for reuse via **Save Config**
+
+## Credits
+
+Originally developed by Nixon Ong.
