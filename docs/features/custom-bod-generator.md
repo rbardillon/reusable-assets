@@ -120,3 +120,28 @@ All modes produce a `.zap` archive with:
 - Folder naming convention: `M3BOD_{Noun}_{Verb}_{Direction}_{Version}_Custom`
 
 The `.zap` file can be imported directly into MEC via the standard mapping import workflow.
+
+---
+
+## Data Catalog Registration
+
+After generating a `.zap` in any mode, the tool prompts you to register the object schema in the **ION Data Catalog** (`DATAFABRIC/datacatalog/v1`).
+
+### Flow
+
+1. After successful `.zap` download, a confirmation dialog asks: *"Would you like to register in the Data Catalog?"*
+2. If you click **Yes**, the tool checks whether the noun already exists
+3. If it exists, a warning dialog confirms whether to overwrite
+4. On confirmation, a minimal noun metadata XML and XSD payload are built and POSTed to the Data Catalog API
+
+### What Gets Registered
+
+- **Noun metadata XML** — includes noun name, verb, identifier path, accounting entity path, and location path
+- **Noun schema XSD** — UTF-8 encoded XSD with all user-defined fields as `xs:string` elements
+
+### Notes
+
+- For **Custom BOD** mode, the field list from the form is used to build the XSD
+- For **Standard BOD** and **Upload & Rename** modes, an empty field list is used (the schema is registered as a placeholder that can be edited later in the Object Schema Editor)
+- The user performing the registration is taken from the M3 user context
+
