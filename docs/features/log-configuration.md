@@ -1,6 +1,23 @@
-# Log Configuration
+---
+layout: default
+title: Log Configuration
+parent: Features
+nav_order: 12
+---
 
-View and manage EC/MEC logger levels directly from the app — no need to navigate the Grid UI manually.
+# Log Configuration
+{: .no_toc }
+
+View and manage EC/MEC logger levels directly from the app.
+{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Overview
 
@@ -9,16 +26,15 @@ The Log Configuration tab connects to the Grid API's `LogConfigurationPage` to f
 ## Features
 
 - **View all loggers** — Displays every configurable logger class with its current level
-- **Change level per class** — Select DEBUG, INFO, WARN, ERROR, or FATAL from a dropdown to immediately apply
-- **Bulk level change** — Set all loggers to a specific level with one click
+- **Change level per class** — Editable dropdown column to set DEBUG, INFO, WARN, ERROR, or FATAL immediately
+- **Bulk level change** — Set all loggers or selected rows to a specific level
 - **Filter/search** — Quickly find a specific logger class by name
-- **Color-coded badges** — Visual indicators for each log level
 
 ## How it works
 
 1. On tab load, the app POSTs to `/grid/appui/EC_MT` with the `LogConfigurationPage` navigation target
 2. The response contains a table of logger classes with their current level and available level options
-3. When you change a level, it POSTs the same endpoint with `do: "class"`, `class: "<name>"`, and `level: "<level>"` params
+3. When you change a level via the dropdown, it POSTs the same endpoint with `do: "class"`, `class: "<name>"`, and `level: "<level>"` params
 4. For bulk changes, it uses `do: "all"` instead
 
 ## Use cases
