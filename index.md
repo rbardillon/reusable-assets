@@ -35,6 +35,7 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | [**Kiro AI Chat**]({% link docs/features/kiro-chat.md %}) | AI-powered chat assistant with WSL backend |
 | [**Custom BOD Generator**]({% link docs/features/custom-bod-generator.md %}) | Generate CUSBOD mapping templates (.zap) for MEC import |
 | [**Generators**]({% link docs/features/generators.md %}) | Quick timestamp, UUID, and H5 Script Link generators |
+| [**Log Configuration**]({% link docs/features/log-configuration.md %}) | View and manage EC/MEC logger levels directly from the app |
 
 ---
 
