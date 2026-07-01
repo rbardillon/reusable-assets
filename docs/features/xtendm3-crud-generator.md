@@ -6,16 +6,18 @@ nav_order: 1
 ---
 
 # XtendM3 CRUD Generator
+
 {: .no_toc }
 
 Generate full CRUD transactions for XtendM3 custom tables and upload them directly to M3.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -25,22 +27,34 @@ The XtendM3 CRUD Generator creates complete Add, Delete, Get, List, and Update t
 
 ## Capabilities
 
+### Code Preview
+
+- **Preview Code** button opens an inline Monaco editor panel
+- Tabbed interface showing all 5 generated Groovy transactions (Add, Del, Get, Lst, Upd) plus the table JSON
+- Syntax highlighted with Java/Groovy language support
+- Read-only view — review the generated code before uploading or downloading
+- Validates configuration before generating preview
+
 ### Transaction Generation
+
 - Generates **Add**, **Del**, **Get**, **Lst**, and **Upd** transactions
 - Configurable field definitions (name, type, length, mandatory, key)
 - Auto-generates proper XtendM3 Groovy code with database operations
 
 ### Upload to M3
+
 - Upload transactions directly to the M3 Extensibility API
 - Auto-activation after upload
 - Upload table definitions to Foundation REST `importTables` endpoint (with CSRF token handling)
 
 ### Configuration Management
+
 - Save/load field configurations to M3 environment via `EXT999MI`
 - Download generated code as ZIP archive
 - Export/import JSON configurations for sharing
 
 ### User Context
+
 - User field auto-populated from M3 login
 - Read-only when authenticated within M3 session
 
