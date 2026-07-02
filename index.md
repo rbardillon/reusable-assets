@@ -56,6 +56,8 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 
 - **Framework:** Angular 18.2 with TypeScript
 - **UI Library:** IDS Enterprise (Soho) via `ids-enterprise-ng`
+- **Navigation:** Custom Module Nav sidebar with Angular Router (hash routing)
+- **Theming:** IDS Personalize with Light/Dark/Contrast modes and 9 color options
 - **M3 Integration:** `@infor-up/m3-odin` and `@infor-up/m3-odin-angular`
-- **Code Editor:** Monaco Editor
+- **Code Editor:** Monaco Editor (theme-synced with app mode)
 - **Build Tool:** Angular CLI
