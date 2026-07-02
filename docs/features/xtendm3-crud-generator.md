@@ -29,10 +29,13 @@ The XtendM3 CRUD Generator creates complete Add, Delete, Get, List, and Update t
 
 ### Code Preview
 
-- **Preview Code** button opens an inline Monaco editor panel
+- **Preview Code** button opens a full-screen modal overlay (90vw × 85vh)
 - Tabbed interface showing all 5 generated Groovy transactions (Add, Del, Get, Lst, Upd) plus the table JSON
 - Syntax highlighted with Java/Groovy language support
-- Read-only view — review the generated code before uploading or downloading
+- **Editable** — modify the generated code directly in the editor; changes are used by Upload and Download
+- Modified tab indicator (blue dot) shows which transactions have been manually edited
+- Upload and Download buttons in the modal header for direct actions from the preview
+- Click outside the modal to close it
 - Validates configuration before generating preview
 
 ### Transaction Generation

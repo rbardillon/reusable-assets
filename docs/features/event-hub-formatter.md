@@ -6,16 +6,18 @@ nav_order: 2
 ---
 
 # Event Hub Formatter
+
 {: .no_toc }
 
 Browse, filter, and export Event Hub subscription events from your M3 environment.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -26,19 +28,24 @@ The Event Hub Formatter connects to your M3 environment's Event Hub to browse su
 ## Capabilities
 
 ### Subscription Browsing
+
 - Browse Event Hub subscriptions directly from the connected M3 environment
 - Multi-select subscriptions for batch querying
+- Selected subscriptions automatically sort to the top of the dropdown list for easy access
 
 ### Filtering
+
 - Start time and time span configuration
 - Criteria-based filtering on event properties
 
 ### Results Display
+
 - Filterable and sortable datagrid for event results
 - Row selection opens event detail in a Soho modal dialog
 - Flattened element columns for easy reading
 
 ### Export
+
 - Export events to CSV with flattened element columns
 - Existing CSV/text formatting preserved for compatibility
 
