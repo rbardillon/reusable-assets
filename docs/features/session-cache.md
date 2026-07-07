@@ -17,7 +17,7 @@ Cache Grid API results in `sessionStorage` for instant loading with tenant-scope
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ---
 
