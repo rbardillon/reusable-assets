@@ -12,6 +12,140 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-07-08
+
+### New: Export Configurations Tab
+
+- Single-item export: Select program (CMS015/CMS010/CRS021), fill in parameters, execute automation and download zip
+- Uses `FormService.executeCommand('RUN', automationXml)` — the working MUA pattern for H5 Form Automation
+- Download via `M3/foundation-rest/file-management/v1/` (ION API)
+- Preview of generated FIELD1 and FIELD2 values before execution
+
+### New: Bulk Export Modal
+
+- Accessible from Export Configurations tab ("Bulk Export" button) and Custom List Checker datagrid toolbar (export icon)
+- 3 tabbed datagrids: CMS015 (Custom Lists), CMS010 (Info Browser), CRS021 (Sorting Options)
+- Multi-select with checkbox column and "Select All" header
+- CMS015 loads from `CMS015MI/LstCustomMI`
+- CMS010 loads from `CMS010MI/LstInfoCat`
+- CRS021 has collapsible accordion filter for TABLE name; loads user-defined sorting options only (SOPT starting with letter)
+- Three actions per tab: Export & Download, Export Only, Download Only
+- Pre-checks file listing API (`GET files/config_data/`) before downloading with retry logic
+- Detailed failure dialog listing each missing/failed config by name and status
+- Per-tab loading indicators
+- Standard Soho toolbar with More button (personalize columns, row height, filter)
+- When opened from Custom List Checker, pre-populates with distinct records from current datagrid
+
+### Enhanced: All Component Modals (Draggable)
+
+- Bulk Export, Custom List Export, and DES-030 modals are now draggable by header
+- Native mousedown/mousemove implementation with viewport containment
+- Delayed positioning (500ms) to account for data loading
+- max-height: 90vh with internal scrolling
+
+### Added: Environment-based Dev Token
+
+- `src/environments/environment.ts` with `ionApiDevToken` for local ION API development
+- Single `APP_INITIALIZER` sets token once for all components
+- Removed all per-component `setDevelopmentToken` / `isLocalhost` calls
+- File gitignored to prevent token commits
+
+### Enhanced: Custom List Checker Tab
+
+- Added "Export Config" icon button in datagrid toolbar
+- Opens Bulk Export modal pre-populated with current dataset
+- Fixed file upload event type (`SohoFileUploadEvent` → `any`)
+
+### Docs
+
+- Added Export Configurations feature page
+- Updated Custom List Checker docs with export functionality
+- Updated Getting Started with ION API token setup instructions
+- Updated Dataflow List docs to mention draggable DES-030 dialog
+- Updated index.md feature table descriptions
+
+---
+
+## 2026-07-07
+
+### Enhanced: Grid API Service — Session Cache with Tenant-Scoped Keys
+
+- `GridApiService.getMappings()` now checks `sessionStorage` before making Grid API calls
+- Cache key includes tenant ID for multi-tenant safety (e.g., `grid_api_cache_TENANT_mappings`)
+- Data persists for the browser tab session — automatically cleared on tab close or logout
+- `getMappings(bypassCache)` accepts an optional `bypassCache` flag to force a fresh fetch
+- `clearCache()` now also removes the session entry alongside the in-memory cache
+- New `clearSessionCache()` method to wipe all grid API cache entries at once
+
+---
+
+## 2026-07-02
+
+### Enhanced: App Startup — Pre-load Grid API Data
+
+- Grid API mappings are now fetched in the background at app startup (after user context is loaded)
+- MEC Mapping Viewer, Custom List Checker, Dataflow List, and Log Configuration tabs load instantly since data is already cached
+
+### Enhanced: Event Hub Formatter Tab
+
+- **Selected subscriptions float to top** — Uses Soho dropdown's built-in `moveSelected: 'all'` to show selected items at the top of the list
+
+### Enhanced: XtendM3 CRUD Generator Tab
+
+- **Full-screen code preview modal** — Replaced inline bottom panel with a centered modal overlay (90vw × 85vh) for focused code editing
+- **Editable code** — Monaco editors are now read-write; edits are preserved per tab and used when uploading or downloading
+- Modified tab indicator (blue dot) shows which transactions have been manually edited
+- Upload and Download buttons in the modal header for quick actions directly from the preview
+- Clicking outside the modal (on the overlay) closes it
+- Download and Upload from toolbar also use edited code when preview tabs have modifications
+
+### Enhanced: Navigation — Module Nav Sidebar with Angular Router
+
+- Replaced vertical Soho tabs with a custom module-nav sidebar (IDS-aligned spacing and styling)
+- Icons for each nav item with IDS icon set (document, search-list, calendar, script, etc.)
+- Collapsible sidebar: expanded (300px with labels) or collapsed (56px icon rail) via hamburger toggle
+- Search/filter for nav items — filters as you type, clears on X button
+- Angular Router integration with hash routing (`useHash: true`) for H5 SDK compatibility
+- `CacheRouteReuseStrategy` preserves component state across navigation (no reset on tab switch)
+- Sidebar and header on same row — sidebar spans full viewport height, header only in content area
+
+### Enhanced: Theme Support
+
+- **Theme switching** — Mode (Light/Dark/Contrast) and Color (Default, Amber, Amethyst, Azure, Emerald, Graphite, Ruby, Slate, Turquoise) via submenu in More button
+- Checkmark indicator on currently active mode and color
+- `ThemeService` — shared service managing Monaco editor theme globally
+- Monaco editors respond to theme changes across all cached routes (re-applied on navigation)
+- All custom CSS uses `inherit`, `currentColor`, and `rgba()` — fully theme-responsive
+- Chat components (Kiro Chat, GenAI Chat) styled with semi-transparent colors for dark mode support
+
+### Refactored: App Architecture
+
+- `AppComponent` stripped to thin shell (user context + locale init only)
+- Header, navigation, theme, and about modal moved to `MainComponent`
+- Removed dead code: old personalize handlers, unused ViewChild refs, duplicate about modal
+- Cleaned XtendM3 code preview CSS to be theme-responsive
+- MEC Variable Sanitizer: removed dynamic editor resize (fixed height with internal scroll)
+
+### Enhanced: MEC Variable Sanitizer
+
+- Fixed overlapping Monaco editors — both now use fixed 300px height with internal scrolling
+- Instructions box styled with `rgba()` for dark mode compatibility
+- Removed content-based auto-resize that caused layout issues
+
+---
+
+## 2026-06-20
+
+### New: Log Configuration Tab
+
+- Browse all EC/MEC logger classes with their current log levels in a Soho datagrid
+- Inline dropdown editor on the Level column to change log level per class (DEBUG, DIAG, INFO, WARN, ERROR, FATAL)
+- Loading indicator shown during API calls
+- Uses Grid API `LogConfigurationPage` endpoint with CSRF token handling
+- Full Soho toolbar with keyword search, filter, row height, and personalize columns
+
+---
+
 ## 2026-05-28
 
 ### Enhanced: GenAI Chat Tab
