@@ -12,6 +12,13 @@ nav_order: 13
 Automate M3 configuration exports and downloads via H5 Form Automation.
 {: .fs-6 .fw-300 }
 
+## Table of contents
+
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ---
 
 ## Overview
