@@ -40,7 +40,7 @@ The Dataflow List tab connects to the ION Connect API to list all dataflows in y
 
 ### DES-030 Generation
 - Generates a Word document (`.docx`) with all extracted dependencies
-- Configurable user story, title, and change references
+- Configurable user story, title, and change references via a draggable dialog
 - Includes connection point details and custom list data
 
 ### Clipboard Copy

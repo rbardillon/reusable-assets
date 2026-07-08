@@ -27,7 +27,7 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | :----------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
 | [**XtendM3 CRUD Generator**]({% link docs/features/xtendm3-crud-generator.md %})     | Generate full CRUD transactions for custom tables with editable code preview modal and upload directly to M3 |
 | [**Event Hub Formatter**]({% link docs/features/event-hub-formatter.md %})           | Browse, filter, and export Event Hub subscriptions with smart selection sorting                              |
-| [**Custom List Checker**]({% link docs/features/custom-list-checker.md %})           | Validate custom list configurations from ZAP files or MEC mappings                                           |
+| [**Custom List Checker**]({% link docs/features/custom-list-checker.md %})           | Validate custom list configurations from ZAP files or MEC mappings, with bulk config export                  |
 | [**MEC Mapping Viewer**]({% link docs/features/mec-mapping-viewer.md %})             | Browse MEC mappings with Java source code viewer                                                             |
 | [**Dataflow List**]({% link docs/features/dataflow-list.md %})                       | Extract ION dataflow dependencies and generate DES-030 documents                                             |
 | [**Object Schema Editor**]({% link docs/features/object-schema-editor.md %})         | Browse and edit ION noun XSD definitions                                                                     |

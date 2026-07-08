@@ -86,7 +86,26 @@ Or the shorthand:
 odin serve -mi
 ```
 
-Navigate to [http://localhost:4200](http://localhost:4200).
+Navigate to [http://localhost:8080](http://localhost:8080).
+
+## Local ION API Access (Optional)
+
+For features that call ION API directly (Export Configurations download, Object Schema Editor, GenAI Chat), you need a Bearer token when running locally:
+
+1. Open your M3 H5 in the browser and log in
+2. Open DevTools → Network → find any request with an `Authorization: Bearer` header
+3. Copy the full token
+4. Paste it in `src/environments/environment.ts`:
+
+```typescript
+export const environment = {
+  production: false,
+  ionApiDevToken: 'eyJraWQ...',  // Your token here
+};
+```
+
+{: .warning }
+This file is gitignored. Tokens expire after ~2 hours. When deployed to H5, the token comes from the Grid session automatically — no manual config needed.
 
 ## Building for Deployment
 
