@@ -37,6 +37,7 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | [**Custom BOD Generator**]({% link docs/features/custom-bod-generator.md %})         | Generate CUSBOD mapping templates (.zap) for MEC import                                                      |
 | [**Generators**]({% link docs/features/generators.md %})                             | Quick timestamp, UUID, and H5 Script Link generators                                                         |
 | [**Log Configuration**]({% link docs/features/log-configuration.md %})               | View and manage EC/MEC logger levels directly from the app                                                   |
+| [**Export Configurations**]({% link docs/features/export-configurations.md %})       | Automate M3 configuration exports (CMS015/CMS010/CRS021) with bulk export modal and file download            |
 | [**Session Cache**]({% link docs/features/session-cache.md %})                       | Cache Grid API results in sessionStorage with tenant-scoped keys for instant loading                         |
 
 ---
