@@ -17,7 +17,7 @@ Browse, filter, and export Event Hub subscription events from your M3 environmen
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ---
 

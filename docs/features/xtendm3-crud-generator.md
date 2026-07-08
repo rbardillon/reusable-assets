@@ -17,7 +17,7 @@ Generate full CRUD transactions for XtendM3 custom tables and upload them direct
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ---
 
