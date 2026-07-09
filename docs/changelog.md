@@ -14,6 +14,14 @@ All notable changes to this project are documented below.
 
 ## 2026-07-09
 
+### New: MEC Map Download Tab
+
+- Download MEC mappings as .zap files via the IEC MapGen REST API
+- Select mapping from lookup, download via ION API Gateway, decode and extract to .zap archive
+- Output includes .map file (UTF-16), schema .xsd files, and mapping.properties
+- Compatible with MEC Mapper's import function
+- Real-time download log shows extraction progress
+
 ### Enhanced: Object Schema Editor — GenAI Assist & Add Mode
 
 - Added radio button toggle to switch between "Add" and "Update" modes
