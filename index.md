@@ -30,11 +30,11 @@ Reusable Assets is an Angular 18 application that provides productivity tools fo
 | [**Custom List Checker**]({% link docs/features/custom-list-checker.md %})           | Validate custom list configurations from ZAP files or MEC mappings, with bulk config export                  |
 | [**MEC Mapping Viewer**]({% link docs/features/mec-mapping-viewer.md %})             | Browse MEC mappings with Java source code viewer                                                             |
 | [**Dataflow List**]({% link docs/features/dataflow-list.md %})                       | Extract ION dataflow dependencies and generate DES-030 documents                                             |
-| [**Object Schema Editor**]({% link docs/features/object-schema-editor.md %})         | Browse and edit ION noun XSD definitions                                                                     |
+| [**Object Schema Editor**]({% link docs/features/object-schema-editor.md %})         | Browse, create, and edit ION noun XSD definitions with GenAI-assisted generation                              |
 | [**MEC Variable Validations**]({% link docs/features/mec-variable-validations.md %}) | Generate null-safe trim statements from MEC Java classes                                                     |
 | [**GenAI Chat**]({% link docs/features/genai-chat.md %})                             | AI chat interface powered by Infor's GenAI service                                                           |
 | [**Kiro AI Chat**]({% link docs/features/kiro-chat.md %})                            | AI-powered chat assistant with WSL backend                                                                   |
-| [**Custom BOD Generator**]({% link docs/features/custom-bod-generator.md %})         | Generate CUSBOD mapping templates (.zap) for MEC import                                                      |
+| [**Custom BOD Generator**]({% link docs/features/custom-bod-generator.md %})         | Generate CUSBOD mapping templates (.zap) for MEC import with GenAI-assisted noun property generation         |
 | [**Generators**]({% link docs/features/generators.md %})                             | Quick timestamp, UUID, and H5 Script Link generators                                                         |
 | [**Log Configuration**]({% link docs/features/log-configuration.md %})               | View and manage EC/MEC logger levels directly from the app                                                   |
 | [**Export Configurations**]({% link docs/features/export-configurations.md %})       | Automate M3 configuration exports (CMS015/CMS010/CRS021) with bulk export modal and file download            |

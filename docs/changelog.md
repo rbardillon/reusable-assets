@@ -12,6 +12,25 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-07-09
+
+### Enhanced: Object Schema Editor — GenAI Assist & Add Mode
+
+- Added radio button toggle to switch between "Add" and "Update" modes
+- **Add mode**: Enter a new noun name, use GenAI to describe and generate XSD, then register the schema in ION Data Catalog
+- **Update mode**: Select existing noun from dropdown, use GenAI to describe modifications, then update the schema
+- GenAI button (sparkle icon) toggles a collapsible prompt panel for natural language schema generation/modification via Infor GenAI LLM Service
+- Register Schema flow includes existence check with overwrite confirmation
+- Automatically extracts field names from generated XSD for noun metadata registration
+
+### Enhanced: Custom BOD Generator — GenAI-Assisted Noun Properties
+
+- Added GenAI button next to "Noun Properties" label in the Custom BOD form
+- Describe noun properties in natural language and the LLM generates PascalCase field names
+- Generated fields populate the list and can be manually edited, reordered, or removed
+
+---
+
 ## 2026-07-08
 
 ### New: Export Configurations Tab

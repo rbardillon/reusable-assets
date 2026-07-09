@@ -55,9 +55,17 @@ The Custom BOD Generator creates ready-to-import `.zap` archives containing MEC 
 2. Enter a **Noun** name (e.g. `CustomerOrder`)
 3. Select a **Verb** from the dropdown
 4. Choose a **Data Flow** direction
-5. Add noun **Properties** using the field input (add, edit, remove, reorder)
+5. Add noun **Properties** — either manually using the field input, or click the **GenAI** button to generate them from a natural language description
 6. Click **Generate BOD** to download the `.zap` file
 7. Import the `.zap` into MEC via the standard mapping import
+
+### GenAI-Assisted Noun Properties
+
+Click the GenAI sparkle icon next to "Noun Properties" to open the AI prompt panel. Describe the fields you need in plain English:
+
+> *"A warranty claim with: claim ID, item number, customer name, claim date, status, resolution notes, and amount"*
+
+The LLM generates PascalCase property names (e.g. `ClaimId`, `ItemNumber`, `CustomerName`) and populates the field list. You can then manually edit, reorder, add, or remove fields before generating the BOD.
 
 ---
 
@@ -144,4 +152,3 @@ After generating a `.zap` in any mode, the tool prompts you to register the obje
 - For **Custom BOD** mode, the field list from the form is used to build the XSD
 - For **Standard BOD** and **Upload & Rename** modes, an empty field list is used (the schema is registered as a placeholder that can be edited later in the Object Schema Editor)
 - The user performing the registration is taken from the M3 user context
-
