@@ -27,9 +27,12 @@ src/app/
 │       ├── custom-list-checker/
 │       ├── dataflow-list/
 │       ├── event-hub-formatter/
+│       ├── export-configurations/
 │       ├── genai-chat/
 │       ├── generators/
 │       ├── kiro-chat/
+│       ├── log-configuration/
+│       ├── mec-map-download/
 │       ├── mec-mapping-viewer/
 │       ├── mec-variable-validations/
 │       ├── object-schema-editor/
@@ -38,6 +41,17 @@ src/app/
 │   └── des030/                      # DES030 code generators
 ├── service/                         # Shared services
 └── app.module.ts                    # Root module
+
+docs-site/
+├── docs/
+│   ├── architecture/                # Architecture documentation
+│   ├── configuration/               # Configuration guides
+│   ├── features/                    # Feature documentation pages
+│   ├── getting-started/             # Getting started guides
+│   └── changelog.md                 # Published changelog
+├── generate-pdf.js                  # PDF generator script
+├── index.md                         # Home page
+└── package.json                     # Docs-site dependencies (md-to-pdf)
 ```
 
 ## Key Dependencies
@@ -52,3 +66,24 @@ src/app/
 | `fast-xml-parser` | XML parsing for ZAP/BOD files |
 | `file-saver` | Client-side file downloads |
 | `docx` | Word document generation |
+
+## Documentation Site
+
+The `docs-site/` directory is a Jekyll-based documentation site published separately. It also includes a PDF generation script.
+
+### PDF Generation
+
+`docs-site/generate-pdf.js` combines all documentation markdown files into a single PDF using `md-to-pdf`. It:
+
+1. Reads files in navigation order (matching Jekyll `nav_order`)
+2. Strips Jekyll front matter, Kramdown classes, and Liquid tags
+3. Converts internal links (`{% link %}` and relative paths) to plain text so they don't resolve to localhost in the PDF
+4. Preserves external `https://` links as clickable
+5. Outputs `reusable-assets-docs.pdf`
+
+Run with:
+
+```bash
+cd docs-site
+npm run pdf
+```

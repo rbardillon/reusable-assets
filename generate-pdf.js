@@ -2,7 +2,6 @@ const { mdToPdf } = require('md-to-pdf');
 const fs = require('fs');
 const path = require('path');
 
-const docsDir = path.join(__dirname, 'docs');
 const indexFile = path.join(__dirname, 'index.md');
 
 // Order matches nav_order
@@ -15,18 +14,24 @@ const fileOrder = [
   'docs/features/event-hub-formatter.md',
   'docs/features/custom-list-checker.md',
   'docs/features/mec-mapping-viewer.md',
+  'docs/features/custom-bod-generator.md',
   'docs/features/kiro-chat.md',
   'docs/features/dataflow-list.md',
   'docs/features/genai-chat.md',
   'docs/features/generators.md',
   'docs/features/mec-variable-validations.md',
   'docs/features/object-schema-editor.md',
+  'docs/features/log-configuration.md',
+  'docs/features/export-configurations.md',
+  'docs/features/session-cache.md',
+  'docs/features/mec-map-download.md',
   'docs/architecture/architecture.md',
   'docs/architecture/project-structure.md',
   'docs/architecture/services.md',
   'docs/configuration/configuration.md',
   'docs/configuration/odin-json.md',
   'docs/configuration/kiro-chat-setup.md',
+  'docs/changelog.md',
 ];
 
 function stripFrontMatter(content) {
@@ -37,7 +42,16 @@ function stripJekyllMarkup(content) {
   // Remove Jekyll/Kramdown classes like {: .fs-9 } {: .no_toc }
   content = content.replace(/\{:.*?\}/g, '');
   content = content.replace(/\n1\. TOC\n/g, '');
-  // Remove Liquid tags like {% link ... %} and {{ site.baseurl }}
+
+  // Convert markdown links with Liquid {% link %} hrefs to plain text (keep label only)
+  // e.g. [**Feature Name**]({% link docs/features/something.md %}) → **Feature Name**
+  content = content.replace(/\[([^\]]*)\]\(\{%.*?%\}\)/g, '$1');
+
+  // Convert remaining relative markdown links to plain text (avoid localhost navigation)
+  // e.g. [Label](/docs/something) or [Label](docs/something) → Label
+  content = content.replace(/\[([^\]]*)\]\((?!https?:\/\/)([^)]*)\)/g, '$1');
+
+  // Remove any remaining Liquid tags like {% ... %} and {{ site.baseurl }}
   content = content.replace(/\{%.*?%\}/g, '');
   content = content.replace(/\{\{.*?\}\}/g, '');
   return content;
