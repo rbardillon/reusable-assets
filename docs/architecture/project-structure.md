@@ -77,7 +77,7 @@ The `docs-site/` directory is a Jekyll-based documentation site published separa
 
 1. Reads files in navigation order (matching Jekyll `nav_order`)
 2. Strips Jekyll front matter, Kramdown classes, and Liquid tags
-3. Converts internal links (`{% link %}` and relative paths) to plain text so they don't resolve to localhost in the PDF
+3. Converts internal links (Liquid `link` tags and relative paths) to plain text so they don't resolve to localhost in the PDF
 4. Preserves external `https://` links as clickable
 5. Outputs `reusable-assets-docs.pdf`
 
