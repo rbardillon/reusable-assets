@@ -12,6 +12,29 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-07-10
+
+### Added: MDBREADMI Export Tab
+
+- New "MDBREADMI — DB Read MI" tab in the Bulk Export Modal
+- Lists all MDBREADMI transactions via `MRS001MI/LstTransactions`
+- Supports Export & Download, Export Only, and Download Only with multi-select
+- Automation navigates MRS010, selects MDBREADMI program and transaction, exports via option 26
+- Export filename: `MDBREADMI_MRS010<TransactionName>_<YYYYMMDD>`
+- Auto-loads transaction list on modal open
+
+### Changed: Export Configurations Simplified
+
+- Removed single-export dropdown and free-text fields — all exports now go through the bulk modal
+- Reduces errors since values come from actual M3 data rather than manual entry
+
+### Changed: Custom List Checker — MDBREADMI Separation
+
+- Records with `IBCA = 'MDBREADMI'` now populate the MDBREADMI tab instead of CMS010
+- CMS015 tab excludes MDBREADMI transactions for cleaner separation
+
+---
+
 ## 2026-07-09
 
 ### New: MEC Map Download Tab

@@ -23,28 +23,13 @@ Automate M3 configuration exports and downloads via H5 Form Automation.
 
 ## Overview
 
-The Export Configurations tab provides two workflows for exporting M3 configuration data:
+The Export Configurations tab provides a streamlined workflow for exporting M3 configuration data in bulk. Click **"Open Export Manager"** to open the modal with tabbed datagrids where you can select and export/download multiple configurations at once.
 
-1. **Single Export** — Select a program and enter parameters to export one configuration at a time
-2. **Bulk Export** — Open a modal with tabbed datagrids to select and export/download multiple configurations
+The modal uses H5 SDK `FormService.executeCommand('RUN', automationXml)` to trigger configuration exports, and the M3 Foundation REST file-management API to download the resulting zip files.
 
-Both use the H5 SDK `FormService.executeCommand('RUN', automationXml)` to trigger configuration exports, and the M3 Foundation REST file-management API to download the resulting zip files.
+## Export Manager Modal
 
-## Single Export
-
-Select a program from the dropdown, fill in the required fields, then click "Export":
-
-| Program                 | Fields                | List Option | FIELD1 Format                               |
-| :---------------------- | :-------------------- | :---------- | :------------------------------------------ |
-| CMS015 — Custom List    | Transaction           | 26          | `TRANS ID {transaction}`                    |
-| CMS010 — Info Browser   | Category              | 26          | `INFOBROWSER_CMS010{category}_{date}`       |
-| CRS021 — Sorting Option | Table, Sorting Option | 22          | `SORTING OPTION_CRS021{table}{sopt}_{date}` |
-
-After export, a "Download" button appears to fetch the zip file from M3.
-
-## Bulk Export Modal
-
-Click **"Bulk Export"** to open the modal with 3 tabs:
+The modal has 4 tabs:
 
 ### CMS015 — Custom Lists
 
@@ -60,6 +45,15 @@ Click **"Bulk Export"** to open the modal with 3 tabs:
 
 - Enter a TABLE filter (e.g., `MITMAS`) and click "Load"
 - If left empty, loads all tables but shows **user-defined only** (SOPT starting with a letter, not standard numeric ones)
+- Multi-select rows, then Export & Download
+
+### MDBREADMI — DB Read MI
+
+- Data from `MRS001MI/LstTransactions` filtered by `MINM=MDBREADMI`
+- Lists all transactions defined under the MDBREADMI program with transaction name, description, version, status, type, and dates
+- Auto-loads on modal open (no filter required)
+- Export filename format: `MDBREADMI_MRS010<TransactionName>_<YYYYMMDD>`
+- Automation navigates MRS010, positions to MDBREADMI program, selects the transaction, and runs export option 26
 - Multi-select rows, then Export & Download
 
 ### Actions Per Tab
@@ -85,7 +79,12 @@ On completion, shows a summary with any failed/missing items listed by name:
 
 ## Custom List Checker Integration
 
-The Custom List Checker tab has an **Export Config** icon button in the datagrid toolbar. Clicking it opens the same Bulk Export modal, pre-populated with distinct CMS015, CMS010, and CRS021 records from the current datagrid dataset.
+The Custom List Checker tab has an **Export Config** icon button in the datagrid toolbar. Clicking it opens the same Export Manager modal, pre-populated with distinct records from the current datagrid dataset:
+
+- Records with `IBCA = 'MDBREADMI'` populate the **MDBREADMI** tab (TRID is used as the transaction name)
+- All other records with non-empty `IBCA` populate the **CMS010** tab
+- Records with non-MDBREADMI `TRID` values populate the **CMS015** tab
+- Records with user-defined `SOPT` (starting with a letter) populate the **CRS021** tab
 
 ## Environment Configuration
 
