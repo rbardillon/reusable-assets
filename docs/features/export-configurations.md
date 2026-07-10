@@ -29,7 +29,7 @@ The modal uses H5 SDK `FormService.executeCommand('RUN', automationXml)` to trig
 
 ## Export Manager Modal
 
-The modal has 4 tabs:
+The modal has 5 tabs:
 
 ### CMS015 — Custom Lists
 
@@ -54,6 +54,15 @@ The modal has 4 tabs:
 - Auto-loads on modal open (no filter required)
 - Export filename format: `MDBREADMI_MRS010<TransactionName>_<YYYYMMDD>`
 - Automation navigates MRS010, positions to MDBREADMI program, selects the transaction, and runs export option 26
+- Multi-select rows, then Export & Download
+
+### CMS047 — Alert Rules
+
+- Data from `CMS045MI/LstAlertRules`
+- Lists alert rules with Publisher (EVPB), Event Name (EVNM), Operation (EVNO), Alert Rule ID (ARID), Status, Description, Name
+- Auto-loads on modal open
+- Export uses CMS047 program with 4 keys: W1OBKV=EVPB, W2OBKV=EVNM, W3OBKV=EVNO, W4OBKV=ARID
+- Only 2 fields: FIELD1 = `SAAGPR_CMS047_<EVPB>_<EVNM>_<EVNO>_<ARID>`, FIELD2 = date
 - Multi-select rows, then Export & Download
 
 ### Actions Per Tab

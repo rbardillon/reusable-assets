@@ -33,6 +33,13 @@ All notable changes to this project are documented below.
 - Records with `IBCA = 'MDBREADMI'` now populate the MDBREADMI tab instead of CMS010
 - CMS015 tab excludes MDBREADMI transactions for cleaner separation
 
+### Added: CMS047 Export Tab (Alert Rules)
+
+- New "CMS047 — Alert Rules" tab in the Export Manager modal
+- Lists alert rules via `CMS045MI/LstAlertRules` (Publisher, Event Name, Operation, Alert Rule ID)
+- Automation navigates CMS047 with 4 keys (EVPB, EVNM, EVNO, ARID), exports via option 26
+- FIELD1: `SAAGPR_CMS047_<EVPB>_<EVNM>_<EVNO>_<ARID>`
+
 ---
 
 ## 2026-07-09
