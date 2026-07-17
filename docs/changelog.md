@@ -12,6 +12,18 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-07-17
+
+### Improved: MEC Map Download — Session Storage Caching
+
+- Mapping list is now cached in session storage (same pattern as Custom List Checker's Grid API caching)
+- Extracted caching logic into `MecMapCacheService` for reuse and preloading
+- Mappings are preloaded at application startup so the list is ready when the tab is opened
+- Header toolbar "Refresh" button clears MEC mapping cache alongside Grid API cache
+- Deduplicates concurrent requests via a shared loading promise
+
+---
+
 ## 2026-07-10
 
 ### Added: MDBREADMI Export Tab
