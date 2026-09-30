@@ -12,6 +12,28 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-09-30
+
+### Added: Object Schema Editor — Metadata Editing
+
+- Update mode now loads and edits the noun metadata XML (NounMetadata) alongside the XSD schema
+- New collapsible **Edit Metadata** panel to edit Noun Name, ID XPath (document identifier), and Supported Verbs
+- Replace the last segment of the ID XPath to change which field is used as the document ID
+- Edited metadata is sent in the update payload (previously the fetched metadata was passed through unchanged)
+- Added `getNounMetadataXml()` and `buildNounPayloadWithMetadata()` to the data catalog service
+
+### Changed: Object Schema Editor — Read-only Noun Name & Document ID Validation
+
+- Noun Name is now read-only in the metadata panel
+- The Document ID combines a field picker dropdown with an editable ID XPath text box; the text box is the source of truth and supports advanced XPath (predicates/selectors like `DocumentID[1]/ID[not(@schemeName)]`) the picker cannot express
+- The dropdown traverses nested structures, listing fields as noun-relative paths (e.g. `Data/CONO`) so deeply nested fields are selectable, not just the noun's direct children
+- Fixed a crash that prevented the Edit Metadata panel from opening — the field picker is now a native select instead of a Soho dropdown, which also makes the refresh button reflect schema changes immediately
+- The metadata panel now opens whenever a noun is selected, even if its metadata XML failed to load
+- The whole ID XPath is validated against the schema structure on save (not just the last segment); advanced XPath steps (functions, wildcards, non-positional predicates) are accepted without structural checking so valid selector-based IDs are not blocked
+- Inline error messages name the invalid segment and list the valid children at that level
+
+---
+
 ## 2026-07-17
 
 ### Improved: MEC Map Download — Session Storage Caching
