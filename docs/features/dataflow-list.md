@@ -27,6 +27,7 @@ The Dataflow List tab connects to the ION Connect API to list all dataflows in y
 
 ### Dependency Extraction
 - ION Mappings
+- MEC Map (resolved from the MI-info API; the single most recently published version is shown when multiple maps match)
 - Connection Points (with file template resolution)
 - Application Connections
 - Splitters & CBR Filters
@@ -35,6 +36,7 @@ The Dataflow List tab connects to the ION Connect API to list all dataflows in y
 
 ### Custom List Resolution
 - Automatically matches APPLICATION nouns to MEC mappings
+- Resolves MI info through the standard ION API Gateway administration API (`GET M3/iec/api/administration/v1/mappings/mi-info`) via `MecMappingAdminService`, replacing the previous Grid UI REST scrape
 - Extracts CMS100MI/MDBREADMI transactions from matched mappings
 - Fetches custom list data via `EXT100MI.LstCustListData`
 

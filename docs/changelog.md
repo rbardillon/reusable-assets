@@ -14,12 +14,38 @@ All notable changes to this project are documented below.
 
 ## 2026-10-19
 
+### Changed: Grid UI REST Fully Removed — All Tabs on ION API Gateway
+
+- Migrated the last Grid UI REST consumers (Custom List Checker and Dataflow List) onto the standard ION API Gateway administration API and removed `GridApiService` entirely — no tab scrapes `/grid/appui/*` anymore
+- Added `getMiInfo()` to `MecMappingAdminService` (`GET /v1/mappings/mi-info`), returning both MI program/transaction pairs and the resolved MEC map(s)
+- Pre-warm and restart cache-clear now use the gateway-backed `MecMappingAdminService`
+
+### Added: Dataflow List — MEC Map Group
+
+- The Dataflow List related-objects view now shows a dedicated **MEC Map** group resolved from the MI-info API
+- When multiple maps match, only the single most recently published version is shown
+
+### Changed: MEC Mapping Viewer & Custom List Checker — Full Mapping Columns
+
+- The mapping lookup in both tabs now shows Mapping Name, Version, State, Published By, Published date, and Standard
+
+### Fixed: MEC Mapping Viewer — Source Loading Indicator
+
+- A busy indicator now appears over the editor while the Java source loads, with a loading placeholder instead of stale content
+
 ### Changed: MEC Mapping Viewer — ION API Gateway Data Source
 
 - The MEC Mapping Viewer now fetches its mapping list and Java source from the standard ION API Gateway administration API (`GET M3/iec/api/administration/v1/mappings` and `GET /v1/mappings/{name}/{version}/source`) instead of the internal Grid UI REST scrape
 - New `MecMappingAdminService` calls the gateway through `IonApiService` with a tenant-keyed session cache, replacing the Viewer's use of `GridApiService`
-- `GridApiService` is otherwise unchanged and still serves other tabs and Log Configuration
-- The MEC Map Download tab and Log Configuration are unchanged
+- `GridApiService` is otherwise unchanged and still serves other tabs
+- The MEC Map Download tab is unchanged
+
+### Changed: Log Configuration — ION API Gateway Data Source
+
+- Log Configuration tab now reads loggers and sets log levels through the standard ION API Gateway administration API (`/v1/log-config/loggers`, `/levels`, `/class`) instead of the internal Grid UI REST scrape
+- New `LogConfigAdminService` calls the gateway through `IonApiService`; the logger list is read fresh on each load (not cached) because it is live config
+- Level dropdown options come from `GET /log-config/levels?context=class` when available, with a hardcoded fallback
+- Removed the unused log methods from `GridApiService`, which is otherwise unchanged and still serves other tabs
 
 ---
 

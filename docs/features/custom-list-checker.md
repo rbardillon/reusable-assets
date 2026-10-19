@@ -35,8 +35,9 @@ The Custom List Checker validates that CMS100MI/MDBREADMI transactions reference
 
 ### MEC Mapping Lookup
 
-- Fetched from Grid API (`/grid/appui/EC_MT`)
-- Select a mapping to auto-extract transaction references
+- Fetched from the standard ION API Gateway administration API (`GET M3/iec/api/administration/v1/mappings`) via `MecMappingAdminService`, replacing the previous Grid UI REST scrape
+- The lookup shows the full set of mapping fields: Mapping Name, Version, State, Published By, Published (date), and Standard
+- Select a mapping to auto-extract transaction references, resolved via the gateway MI-info endpoint (`GET /v1/mappings/mi-info`)
 - Loading state indicator while fetching mappings
 - Alternative to uploading ZAP files — same datagrid output
 

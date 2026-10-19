@@ -21,7 +21,7 @@ View and manage EC/MEC logger levels directly from the app.
 
 ## Overview
 
-The Log Configuration tab connects to the Grid API's `LogConfigurationPage` to fetch all registered logger classes and their current log levels. Change any logger's level directly via the inline dropdown editor in the datagrid.
+The Log Configuration tab connects to the standard ION API Gateway administration API (`M3/iec/api/administration/v1/log-config/*`) to fetch all registered logger classes and their current log levels. Change any logger's level directly via the inline dropdown editor in the datagrid.
 
 ## Features
 
@@ -32,9 +32,9 @@ The Log Configuration tab connects to the Grid API's `LogConfigurationPage` to f
 
 ## How it works
 
-1. On tab load, the app POSTs to `/grid/appui/EC_MT` with the `LogConfigurationPage` navigation target
-2. The response contains a table of logger classes with their current level and available level options
-3. When you change a level via the dropdown editor, it POSTs the same endpoint with `do: "class"`, `class: "<name>"`, and `level: "<level>"` params
+1. On tab load, the app issues `GET M3/iec/api/administration/v1/log-config/loggers?size=0` to fetch the full list of logger classes and their current levels
+2. The Level dropdown options are loaded from `GET /log-config/levels?context=class`; if that endpoint is unavailable or returns an unexpected shape, the app falls back to the hardcoded level list below
+3. When you change a level via the inline dropdown editor (or apply a level to multiple selected rows), the app issues `POST /log-config/class` with a `{ "<className>": { "level": "<LEVEL>" } }` body
 
 ## Use cases
 
