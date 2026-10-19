@@ -26,9 +26,13 @@ The MEC Mapping Viewer provides a read-only interface to browse all MEC (M3 Ente
 ## Capabilities
 
 ### Mapping Browser
-- Filterable and sortable datagrid of all MEC mappings
-- Shared Grid API service — mappings loaded once, cached across tabs
-- Supports both admin and read-only MEC environments
+- Filterable and sortable lookup of all published MEC mappings
+- Data comes from the standard ION API Gateway administration API (`GET M3/iec/api/administration/v1/mappings`) via `MecMappingAdminService`, replacing the previous internal Grid UI REST scrape
+- Mappings are loaded once and cached per tenant in session storage
+
+### Code Viewer Source
+- Java source is retrieved from the gateway endpoint `GET /v1/mappings/{name}/{version}/source?standard={true|false}`
+- No Grid UI navigation payloads are used
 
 ### Code Viewer
 - Monaco Editor integration for Java source code display

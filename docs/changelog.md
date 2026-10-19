@@ -12,6 +12,17 @@ All notable changes to this project are documented below.
 
 ---
 
+## 2026-10-19
+
+### Changed: MEC Mapping Viewer — ION API Gateway Data Source
+
+- The MEC Mapping Viewer now fetches its mapping list and Java source from the standard ION API Gateway administration API (`GET M3/iec/api/administration/v1/mappings` and `GET /v1/mappings/{name}/{version}/source`) instead of the internal Grid UI REST scrape
+- New `MecMappingAdminService` calls the gateway through `IonApiService` with a tenant-keyed session cache, replacing the Viewer's use of `GridApiService`
+- `GridApiService` is otherwise unchanged and still serves other tabs and Log Configuration
+- The MEC Map Download tab and Log Configuration are unchanged
+
+---
+
 ## 2026-09-30
 
 ### Added: Object Schema Editor — Metadata Editing
